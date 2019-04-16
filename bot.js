@@ -32,7 +32,7 @@ client.on("message", message => {
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(' '); 
     message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
-   m.send(`${argresult}\n ${m}`);
+   m.send(`={argresult}\n ${m}`);
   })
    message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :mailbox:  عدد المستلمين `); 
    message.delete(); 
@@ -41,16 +41,16 @@ client.on("message", message => {
 
 client.on('message', message => {
     var  user = message.mentions.users.first() || message.author;
-if (message.content.startsWith("$avatar")) {
-message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
+if (message.content.startsWith("=avatar")) {
+message.channel.send(`This avatar For ${user} link : ={user.avatarURL}`);
 }
 });
 
 client.on('ready',  () => {
     console.log('تم تشغيل :Broadcast  ');
-    console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
-    console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
-    console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
+    console.log(`Logged in as * [ " ={client.user.username} " ] servers! [ " ={client.guilds.size} " ]`);
+    console.log(`Logged in as * [ " ={client.user.username} " ] Users! [ " ={client.users.size} " ]`);
+    console.log(`Logged in as * [ " ={client.user.username} " ] channels! [ " ={client.channels.size} " ]`);
   });
 
   client.on('message', message => {
@@ -66,7 +66,7 @@ m.sendMessage(args)
 });
 
   client.on('message', msg => {
-    if(msg.content === '$help')
+    if(msg.content === '=help')
     msg.reply('Check Your DM :white_check_mark:')
   });
   
@@ -78,11 +78,11 @@ m.sendMessage(args)
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**Help|هيلب
 
-       $obc | لأرسال برود كاست للكل
+       =obc | لأرسال برود كاست للكل
 
-       $bc  |  لأرسال برود كاست للأونلاين
+       =bc  |  لأرسال برود كاست للأونلاين
 
-       $adminbc | برودكاست عادي
+       =adminbc | برودكاست عادي
 
        ** `)
    message.author.sendEmbed(embed)
@@ -97,7 +97,7 @@ client.on('message', message => {
       
   if (message.content.startsWith(adminprefix + 'setg')) {
     client.user.setGame(argresult);
-      message.channel.send(`**✅   $={argresult}**`)
+      message.channel.send(`**✅   =={argresult}**`)
   } else 
      if (message.content === (adminprefix + "leave")) {
     message.guild.leave();        
